@@ -5,9 +5,9 @@ from click.testing import CliRunner
 from src.py_template.main import main
 
 
-@patch("src.main.ProjectScaffolder")
-@patch("src.main.Prompt")
-@patch("src.main.Confirm")
+@patch("src.py_template.main.ProjectScaffolder")
+@patch("src.py_template.main.Prompt")
+@patch("src.py_template.main.Confirm")
 def test_main_successful_scaffolding(
     mock_confirm: MagicMock,
     mock_prompt: MagicMock,
@@ -48,8 +48,8 @@ def test_main_successful_scaffolding(
     mock_scaffolder_instance.scaffold_project.assert_called_once()
 
 
-@patch("src.main.ProjectScaffolder")
-@patch("src.main.Prompt")
+@patch("src.py_template.main.ProjectScaffolder")
+@patch("src.py_template.main.Prompt")
 def test_main_invalid_project_name(mock_prompt: MagicMock, mock_scaffolder: MagicMock):
     # Arrange
     runner = CliRunner()
@@ -74,7 +74,7 @@ def test_main_invalid_project_name(mock_prompt: MagicMock, mock_scaffolder: Magi
     assert mock_scaffolder_instance.project_name == "valid-project"
 
 
-@patch("src.main.ProjectScaffolder")
+@patch("src.py_template.main.ProjectScaffolder")
 def test_main_keyboard_interrupt(mock_scaffolder: MagicMock):
     # Arrange
     runner = CliRunner()
