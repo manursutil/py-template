@@ -1,0 +1,4 @@
+site_name: Py-Template
+nav:
+    - Home: index.md
+    - Contributing: contributing.md
