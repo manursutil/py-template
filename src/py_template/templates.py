@@ -78,9 +78,7 @@ EXPOSE 8000
 CMD ["uv", "run", "python", "-m", "{package_name}"]
 """
 
-MAIN_PY_TEMPLATE = """
-
-def main():
+MAIN_PY_TEMPLATE = """def main():
     print("Hello from {project_name}!")
 
 
@@ -93,9 +91,7 @@ INIT_PY_TEMPLATE = """\"\"\"{project_name} - {description}\"\"\"
 __version__ = "0.1.0"
 """
 
-TEST_MAIN_PY_TEMPLATE = """
-
-import pytest
+TEST_MAIN_PY_TEMPLATE = """import pytest
 from {package_name}.main import main
 
 
