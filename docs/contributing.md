@@ -48,7 +48,7 @@ Py-Template started as a tool for **my own workflow**, but I want to make it use
 Ideas that would be especially valuable:
 
 - New project templates
-- CI/CD integrations (GitHub Actions, GitLab CI, etc.)
+- CI/CD integrations (GitLab CI, etc.)
 - Developer tools (MyPy, Pre-commit, Black, etc.)
 
 If you’d like to propose one, please open an issue first so we can discuss it.

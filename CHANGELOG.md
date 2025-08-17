@@ -22,6 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Volume mounting in docker-compose.yml for development workflow
 - Pre-configured examples for PostgreSQL and Redis services in docker-compose.yml
 - Environment variables setup in Docker Compose (PYTHONPATH, PYTHONDONTWRITEBYTECODE, PYTHONUNBUFFERED)
+- Github Actions CI support that generates `.github/workflows/ci.yml` file with uv, ruff, and pytest
+- CI workflow template with Python 3.10-3.13 testing
 
 ### Changed
 
