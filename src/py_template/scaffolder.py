@@ -1,4 +1,5 @@
 import os
+import re
 import subprocess
 import sys
 from datetime import datetime
@@ -42,8 +43,10 @@ class ProjectScaffolder:
             console.print(f"[red]Directory '{name}' already exists![/red]")
             return False
 
-        if any(char in name for char in ["<", ">", ":", '"', "|", "?", "*"]):
-            console.print("[red]Project name contains invalid characters![/red]")
+        if not re.match(r"^[a-z0-9_-]+$", name):
+            console.print(
+                "[red]Project name can only contain lowercase letters, numbers, hyphens, and underscores.[/red]"
+            )
             return False
 
         return True
