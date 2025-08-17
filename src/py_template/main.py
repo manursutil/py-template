@@ -1,7 +1,7 @@
 import click
 from rich.console import Console
-from rich.panel import Panel
 from rich.prompt import Confirm, Prompt
+from rich.text import Text
 
 from .scaffolder import ProjectScaffolder
 
@@ -10,13 +10,15 @@ console = Console()
 
 @click.command()
 def main():
-    console.print(
-        Panel.fit(
-            "[bold blue]🐍 Py-Template[/bold blue]\n\n"
-            "Let's create your new Python project step by step!",
-            border_style="blue",
-        )
+    title = Text("🐍  PY-TEMPLATE", justify="center")
+    title.stylize("bold magenta")
+
+    console.rule(title, style="cyan")
+
+    subtitle = Text(
+        "Let's create your new Python project step by step!", style="dim italic", justify="center"
     )
+    console.print("\n", subtitle)
 
     scaffolder = ProjectScaffolder()
 
