@@ -8,6 +8,7 @@ from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, TextColumn
 
 from .templates import (
+    DOCKER_COMPOSE_TEMPLATE,
     DOCKERFILE_TEMPLATE,
     GITIGNORE_TEMPLATE,
     INIT_PY_TEMPLATE,
@@ -202,6 +203,18 @@ class ProjectScaffolder:
             f.write(dockerfile_content)
         console.print("Dockerfile file created")
 
+    def create_docker_compose(self):
+        if not self.include_docker:
+            return
+
+        console.print("[blue]Creating docker-compose.yml...[/blue]")
+
+        compose_content = DOCKER_COMPOSE_TEMPLATE.format(package_name=self.package_name)
+
+        with open("docker-compose.yml", "w") as f:
+            f.write(compose_content)
+        console.print("docker-compose.yml created")
+
     def scaffold_project(self):
         console.print(
             f"\n[bold green]🚀 Scaffolding Python project: {self.project_name}[/bold green]\n"
@@ -219,6 +232,7 @@ class ProjectScaffolder:
         self.create_test_files()
         self.create_gitignore()
         self.create_dockerfile()
+        self.create_docker_compose()
 
         console.print(
             f"\n[bold green]✅ Project '{self.project_name}' scaffolded successfully![/bold green]"
@@ -231,3 +245,4 @@ class ProjectScaffolder:
 
         if self.include_docker:
             console.print(f"  5. Build Docker image: docker build -t {self.project_name} .")
+            console.print("  6. Run with Docker Compose: docker-compose up")

@@ -156,3 +156,42 @@ target/
 env/
 venv/
 """
+
+DOCKER_COMPOSE_TEMPLATE = """version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+    # Uncomment for development with live reload
+    # command: uv run python -m {package_name}
+    
+  # Example: Add a database service
+  # db:
+  #   image: postgres:15
+  #   environment:
+  #     POSTGRES_DB: {package_name}
+  #     POSTGRES_USER: user
+  #     POSTGRES_PASSWORD: password
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+
+  # Example: Add Redis for caching
+  # redis:
+  #   image: redis:7-alpine
+  #   ports:
+  #     - "6379:6379"
+
+# Uncomment if using database
+# volumes:
+#   postgres_data:
+"""

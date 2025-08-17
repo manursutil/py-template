@@ -18,6 +18,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - MIT License generation
 - Automatic installation of `pytest` and `ruff` as dev dependencies
 - "Next steps" guidance updated to include `ruff check .`
+- Docker Compose support alongside Dockerfile generation
+- Volume mounting in docker-compose.yml for development workflow
+- Pre-configured examples for PostgreSQL and Redis services in docker-compose.yml
+- Environment variables setup in Docker Compose (PYTHONPATH, PYTHONDONTWRITEBYTECODE, PYTHONUNBUFFERED)
+
+### Changed
+
+- Docker support prompt now mentions both Dockerfile and docker-compose.yml creation
 
 ### Fixed
 

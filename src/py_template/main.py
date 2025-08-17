@@ -68,7 +68,8 @@ def main():
 
     console.print("\n[bold cyan]Step 3: Additional Features[/bold cyan]")
     docker = Confirm.ask(
-        "Would you like to include Docker support? (creates a Dockerfile)", default=False
+        "Would you like to include Docker support? (creates a Dockerfile + docker-compose.yml)",
+        default=False,
     )
     scaffolder.include_docker = docker
 
