@@ -1,30 +1,93 @@
 # Contributing to Py-Template
 
-First off, thank you for considering contributing to Py-Template! It's people like you that make the open source community such a great place.
+First off, thank you for considering contributing to **Py-Template**! 🎉
 
-## How to Contribute
+It’s people like you that make the open source community such a great place.
 
-There are many ways to contribute to Py-Template, from writing documentation to submitting bug reports and feature requests. If you want to contribute code, please follow these steps:
+## Development Setup
 
-1.  **Fork the repository** on GitHub.
-2.  **Clone your fork** to your local machine.
-3.  **Create a new branch** for your changes.
-4.  **Make your changes** and commit them with a clear and concise message.
-5.  **Push your changes** to your fork on GitHub.
-6.  **Create a pull request** to the main Py-Template repository.
+1. Clone the repo:
 
-## Development Environment
+```bash
+git clone https://github.com/manursutil/py-template.git
+cd py-template
+```
 
-To set up the development environment, please see the [Development](../README.md#development) section in the main `README.md` file.
+2. Sync dependencies with uv:
 
-## Code Style
+```bash
+uv sync
+```
 
-This project uses `ruff` for linting and formatting. Please make sure to run `ruff check .` before submitting a pull request.
+3. Run the tests:
 
-## Bug Reports
+```bash
+uv run pytest
+```
 
-If you find a bug, please open an issue on GitHub and provide as much detail as possible. Include the steps to reproduce the bug, the expected behavior, and the actual behavior.
+4. Run linting & formatting:
+
+```bash
+uv run ruff check .
+uv run ruff format .
+```
+
+## How You Can Contribute
+
+There are many ways to help improve Py-Template:
+
+- Share ideas — open an issue or start a discussion
+- Report bugs — include steps to reproduce, expected vs. actual behavior
+- Submit pull requests — fix bugs, add features, or improve docs
+- Improve documentation — clarify usage or add examples
 
 ## Feature Requests
 
-If you have an idea for a new feature, please open an issue on GitHub and describe your idea in detail. Explain why the feature would be useful and how it would work.
+Py-Template started as a tool for **my own workflow**, but I want to make it useful for a broader audience.
+
+Ideas that would be especially valuable:
+
+- New project templates
+- CI/CD integrations (GitHub Actions, GitLab CI, etc.)
+- Developer tools (MyPy, Pre-commit, Black, etc.)
+
+If you’d like to propose one, please open an issue first so we can discuss it.
+
+## Code Style
+
+Use Ruff for linting and formatting:
+
+```bash
+uv run ruff check .
+uv run ruff format .
+```
+
+Keep code type-annotated where possible.
+
+Follow existing project structure and conventions.
+
+## Pull Request Process
+
+1. Fork the repository and create a feature branch:
+
+```bash
+git checkout -b feature/amazing-feature
+```
+
+2. Make your changes, run tests and linting.
+
+3. Commit with a clear message:
+
+```bash
+git commit -m "Add amazing feature"
+```
+
+4. Push to your fork:
+
+```bash
+git push origin feature/amazing-feature
+```
+
+5. Open a Pull Request 🚀
+
+Thank you for making Py-Template better! 🙌

@@ -56,72 +56,34 @@ my-awesome-app/
 ├── README.md
 ├── .gitignore
 ├── pyproject.toml
-└── Dockerfile (optional)
+└── Dockerfile + docker-compose.yml (optional)
 ```
 
-## 🛠 Development
+## Development
 
-### Setup
+See [CONTRIBUTING.md](/docs/contributing.md) for full details on setting up a dev environment, running tests, and contributing.
+
+Quick start:
 
 ```bash
 git clone https://github.com/manursutil/py-template.git
 cd py-template
 uv sync
-```
 
-### Running Tests
-
-```bash
 uv run pytest
-```
-
-### Linting
-
-```bash
 uv run ruff check .
 uv run ruff format .
 ```
 
-### Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Run tests and linting
-5. Commit your changes (`git commit -m 'Add amazing feature'`)
-6. Push to the branch (`git push origin feature/amazing-feature`)
-7. Open a Pull Request
-
-## 📋 Requirements
-
-- Python 3.13+
-- uv (will be installed automatically if not present)
-
 ## A Note from the Author
 
-Py-Template started as a tool I built for **my own workflow** so it is a very opinionated way to spin up Python projects with the tools I use most frequently.
+Py-Template started as a tool I built for my own workflow so it is a very opinionated way to spin up Python projects with the tools I use most frequently.
 
-That said, I’d love to make it useful for a **broader audience**.
-If you use a different stack, need extra integrations, or have ideas for improvement, please open an issue or PR.
+That said, I’d love to make it useful for a broader audience.If you use a different stack, need extra integrations, or have ideas for improvement, please open an issue or PR.
 
-Together we can make Py-Template a **universal scaffolding tool** for modern Python projects.
+Together we can make Py-Template a universal scaffolding tool for modern Python projects 🚀
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-
-### 💡 Ideas & Feature Requests
-
-We’d love to hear how Py-Template can better serve your workflow!
-If you have suggestions, whether it’s for new templates (e.g., FastAPI, Flask, Data Science), CI/CD integrations (GitHub Actions, GitLab CI, etc.), or developer tools (MyPy, Black, Pre-commit, please open an issue or start a discussion.
-
-Contributions of any size are welcome:
-
-- 💬 Share ideas in issues/discussions
-- 🔧 Submit pull requests for new features or improvements
-- 🐞 Report bugs or unexpected behavior
-
-Together we can make Py-Template a go-to tool for modern Python project scaffolding 🚀
+See [CONTRIBUTING.md](/docs/contributing.md) for guidelines on how to get involved.
 
 ## 📝 License
 
