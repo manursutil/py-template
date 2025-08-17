@@ -17,6 +17,7 @@ def test_main_successful_scaffolding(
     runner = CliRunner()
     mock_scaffolder_instance = mock_scaffolder.return_value
     mock_scaffolder_instance.validate_project_name.return_value = True
+    mock_scaffolder_instance.dev_dependencies = ["pytest", "ruff"]
 
     # Simulate user inputs
     mock_prompt.ask.side_effect = [
@@ -44,6 +45,7 @@ def test_main_successful_scaffolding(
     assert mock_scaffolder_instance.description == "A test project"
     assert mock_scaffolder_instance.author == "Test Author"
     assert mock_scaffolder_instance.dependencies == ["requests", "fastapi"]
+    assert mock_scaffolder_instance.dev_dependencies == ["pytest", "ruff"]
     assert mock_scaffolder_instance.include_docker is True
     mock_scaffolder_instance.scaffold_project.assert_called_once()
 
