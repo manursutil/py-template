@@ -39,7 +39,8 @@ def main():
 
     console.print("\n[bold cyan]Step 2: Dependencies[/bold cyan]")
     console.print(
-        "[dim]You can add popular packages like: requests, fastapi, pytest, pandas, numpy, etc.[/dim]"
+        "[dim]You can add popular packages like: requests, fastapi, pandas, numpy, etc.\n"
+        "(pytest and ruff are added for you as dev dependencies)[/dim]"
     )
 
     dependencies = []
@@ -81,6 +82,7 @@ def main():
     else:
         console.print("  📚 Dependencies: [dim]None[/dim]")
 
+    console.print("  🛠️  Dev Dependencies: [cyan]pytest, ruff[/cyan]")
     console.print(f"  🐳 Docker: [cyan]{'Yes' if scaffolder.include_docker else 'No'}[/cyan]")
 
     try:

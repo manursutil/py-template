@@ -28,6 +28,7 @@ class ProjectScaffolder:
         self.description: str = ""
         self.author: str = ""
         self.dependencies: list[str] = []
+        self.dev_dependencies: list[str] = ["pytest", "ruff"]
         self.include_docker: bool = False
 
     def validate_project_name(self, name: str) -> bool:
@@ -80,19 +81,39 @@ class ProjectScaffolder:
             console.print("[yellow]No dependencies specified, skipping step...[/yellow]")
             return
 
-        console.print(f"[blue]Adding dependencies: {', '.join(self.dependencies)}[/blue]")
+        if self.dependencies:
+            console.print(f"[blue]Adding dependencies: {', '.join(self.dependencies)}[/blue]")
+            with Progress(
+                SpinnerColumn(),
+                TextColumn("[progress.description]{task.description}"),
+                console=console,
+            ) as progress:
+                for dep in self.dependencies:
+                    task = progress.add_task(f"Installing {dep}...", total=None)
 
+                    try:
+                        subprocess.run(
+                            ["uv", "add", dep.strip()],
+                            capture_output=True,
+                            text=True,
+                            check=True,
+                        )
+                        progress.update(task, description=f"Installed {dep}")
+                    except subprocess.CalledProcessError as e:
+                        progress.update(task, description=f"Failed to install {dep}")
+                        console.print(f"[red]Error adding dependency '{dep}': {e.stderr}[/red]")
+
+        console.print(f"[blue]Adding dev dependencies: {', '.join(self.dev_dependencies)}[/blue]")
         with Progress(
             SpinnerColumn(),
             TextColumn("[progress.description]{task.description}"),
             console=console,
         ) as progress:
-            for dep in self.dependencies:
+            for dep in self.dev_dependencies:
                 task = progress.add_task(f"Installing {dep}...", total=None)
-
                 try:
                     subprocess.run(
-                        ["uv", "add", dep.strip()],
+                        ["uv", "add", "--dev", dep.strip()],
                         capture_output=True,
                         text=True,
                         check=True,
@@ -100,7 +121,7 @@ class ProjectScaffolder:
                     progress.update(task, description=f"Installed {dep}")
                 except subprocess.CalledProcessError as e:
                     progress.update(task, description=f"Failed to install {dep}")
-                    console.print(f"[red]Error adding dependency '{dep}': {e.stderr}[/red]")
+                    console.print(f"[red]Error adding dev dependency '{dep}': {e.stderr}[/red]")
 
     def create_license_file(self):
         console.print("[blue]Creating LICENSE file...[/blue]")
