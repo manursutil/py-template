@@ -73,11 +73,16 @@ def main():
     )
     scaffolder.include_docker = docker
 
+    github_actions = Confirm.ask(
+        "Would you like to include support for Github Actions CI?",
+        default=True,
+    )
+    scaffolder.include_github_actions = github_actions
+
     console.print("\n[bold]Project Configuration:[/bold]")
     console.print(f"  📦 Project Name: [cyan]{scaffolder.project_name}[/cyan]")
     console.print(f"  📝 Description: [cyan]{scaffolder.description}[/cyan]")
     console.print(f"  👤 Author: [cyan]{scaffolder.author}[/cyan]")
-
     if scaffolder.dependencies:
         console.print(f"  📚 Dependencies: [cyan]{', '.join(scaffolder.dependencies)}[/cyan]")
     else:
@@ -85,6 +90,9 @@ def main():
 
     console.print("  🛠️  Dev Dependencies: [cyan]pytest, ruff[/cyan]")
     console.print(f"  🐳 Docker: [cyan]{'Yes' if scaffolder.include_docker else 'No'}[/cyan]")
+    console.print(
+        f"  🚀 GitHub Actions: [cyan]{'Yes' if scaffolder.include_github_actions else 'No'}[/cyan]"
+    )
 
     try:
         scaffolder.scaffold_project()

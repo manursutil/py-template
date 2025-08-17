@@ -8,6 +8,7 @@ from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, TextColumn
 
 from .templates import (
+    CI_YML_TEMPLATE,
     DOCKER_COMPOSE_TEMPLATE,
     DOCKERFILE_TEMPLATE,
     GITIGNORE_TEMPLATE,
@@ -31,6 +32,7 @@ class ProjectScaffolder:
         self.dependencies: list[str] = []
         self.dev_dependencies: list[str] = ["pytest", "ruff"]
         self.include_docker: bool = False
+        self.include_github_actions: bool = False
 
     def validate_project_name(self, name: str) -> bool:
         if not name:
@@ -215,6 +217,21 @@ class ProjectScaffolder:
             f.write(compose_content)
         console.print("docker-compose.yml created")
 
+    def create_github_actions(self):
+        if not self.include_github_actions:
+            return
+
+        console.print("[blue]Creating .github/workflows/ci.yml...[/blue]")
+
+        ci_yml_content = CI_YML_TEMPLATE
+
+        ci_yml_path = Path(".github/workflows/ci.yml")
+        ci_yml_path.parent.mkdir(parents=True, exist_ok=True)
+
+        with open(ci_yml_path, "w") as f:
+            f.write(ci_yml_content)
+        console.print(f"Created {ci_yml_path}")
+
     def scaffold_project(self):
         console.print(
             f"\n[bold green]🚀 Scaffolding Python project: {self.project_name}[/bold green]\n"
@@ -233,6 +250,7 @@ class ProjectScaffolder:
         self.create_gitignore()
         self.create_dockerfile()
         self.create_docker_compose()
+        self.create_github_actions()
 
         console.print(
             f"\n[bold green]✅ Project '{self.project_name}' scaffolded successfully![/bold green]"
