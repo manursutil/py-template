@@ -1,6 +1,37 @@
 # 🐍 Py-Template
 
-**Py-Template brings the `create-react-app` experience to Python**, an interactive, zero-friction CLI that bootstraps projects with `uv`, testing, linting, and optional Docker support. It generates a modern, well-structured Python project with best practices baked in, so you can start coding right away.
+**Interactive Python project generator - like `create-react-app` but for Python**
+
+Stop copying project structures and wrestling with configuration files. Answer a few questions, and get a perfectly structured Python project in seconds.
+
+## ✨ Why py-template?
+
+**Before py-template:**
+
+```bash
+mkdir my-project
+cd my-project
+touch setup.py pyproject.toml README.md requirements.txt .gitignore
+mkdir src tests docs
+# ... 15 more minutes of boilerplate setup
+```
+
+**With py-template:**
+
+```bash
+py-template
+# Answer 4-5 quick questions
+# ✅ Complete project ready in 30 seconds
+```
+
+### vs. cookiecutter
+
+| Feature         | py-template                  | cookiecutter                 |
+| --------------- | ---------------------------- | ---------------------------- |
+| Setup method    | Interactive Q&A              | Config files first           |
+| Learning curve  | None - just answer questions | Need to understand JSON/YAML |
+| Customization   | Guided prompts               | Pre-configure everything     |
+| User experience | Like create-react-app        | Like filling out forms       |
 
 ## ✨ Features
 
@@ -25,6 +56,7 @@ pipx install git+https://github.com/manursutil/py-template.git
 ```bash
 git clone https://github.com/manursutil/py-template.git
 cd py-template
+uv sync
 uv pip install -e .
 ```
 
@@ -52,6 +84,9 @@ my-awesome-app/
 │   ├── __init__.py
 │   └── test_main.py
 ├── docs/
+├── .github/
+│   └── workflows/
+│       └── ci.yml
 ├── LICENSE
 ├── README.md
 ├── .gitignore
