@@ -24,6 +24,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Environment variables setup in Docker Compose (PYTHONPATH, PYTHONDONTWRITEBYTECODE, PYTHONUNBUFFERED)
 - Github Actions CI support that generates `.github/workflows/ci.yml` file with uv, ruff, and pytest
 - CI workflow template with Python 3.10-3.13 testing
+- Project type selection with specialized directory structures:
+  - Basic Package: Standard src/, tests/, docs/ layout
+  - CLI Tool: Basic layout optimized for command-line tools
+  - Python Library: Basic layout for reusable packages
+  - Web Application: Additional routers/, models/, core/, static/, templates/ directories
+  - Data Science: Additional notebooks/, data/raw/, data/processed/, reports/, features/, visualization/ directories
+  - Machine Learning: All DS directories plus models/, training/, inference/ directories
 
 ### Changed
 
