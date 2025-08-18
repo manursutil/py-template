@@ -10,6 +10,8 @@ authors = [
 requires-python = ">=3.13"
 dependencies = [
     "click>=8.2.1",
+    "inquirerpy>=0.3.4",
+    "pyfiglet>=1.0.4",
     "rich>=14.1.0",
 ]
 

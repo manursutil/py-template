@@ -2,23 +2,25 @@ import click
 from rich.console import Console
 from rich.prompt import Confirm, Prompt
 from rich.text import Text
+import pyfiglet
+from InquirerPy import inquirer
 
 from .scaffolder import ProjectScaffolder
+from .scaffolder import ProjectType
 
 console = Console()
 
 
 @click.command()
 def main():
-    title = Text("🐍  PY-TEMPLATE", justify="center")
-    title.stylize("bold magenta")
+    ascii_banner = pyfiglet.figlet_format("PY-TEMPLATE", font="small", width=80)
 
-    console.rule(title, style="cyan")
+    console.print(ascii_banner)
 
     subtitle = Text(
         "Let's create your new Python project step by step!", style="dim italic", justify="center"
     )
-    console.print("\n", subtitle)
+    console.print(subtitle)
 
     scaffolder = ProjectScaffolder()
 
@@ -38,6 +40,21 @@ def main():
 
     author = Prompt.ask("What's your name? (for the license)", default="Your Name")
     scaffolder.author = author
+
+    project_type = inquirer.select(  # type: ignore
+        message="What type of project are you creating?",
+        choices=[
+            {"name": "Basic Package", "value": "BASIC"},
+            {"name": "CLI Tool", "value": "CLI"},
+            {"name": "Web Application", "value": "WEB"},
+            {"name": "Python Library", "value": "LIB"},
+            {"name": "Data Science", "value": "DS"},
+            {"name": "Machine Learning", "value": "ML"},
+        ],
+        default="BASIC",
+    ).execute()
+
+    scaffolder.project_type = ProjectType[project_type]
 
     console.print("\n[bold cyan]Step 2: Dependencies[/bold cyan]")
     console.print(
@@ -85,6 +102,7 @@ def main():
     console.print(f"  📦 Project Name: [cyan]{scaffolder.project_name}[/cyan]")
     console.print(f"  📝 Description: [cyan]{scaffolder.description}[/cyan]")
     console.print(f"  👤 Author: [cyan]{scaffolder.author}[/cyan]")
+    console.print(f"  🏗️  Project Type: [cyan]{scaffolder.project_type.value}[/cyan]")
     if scaffolder.dependencies:
         console.print(f"  📚 Dependencies: [cyan]{', '.join(scaffolder.dependencies)}[/cyan]")
     else:

@@ -4,6 +4,7 @@ import subprocess
 import sys
 from datetime import datetime
 from pathlib import Path
+from enum import Enum
 
 from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, TextColumn
@@ -23,6 +24,15 @@ from .templates import (
 console = Console()
 
 
+class ProjectType(str, Enum):
+    CLI = "CLI Tool"
+    WEB = "Web Application"
+    LIB = "Python Library"
+    DS = "Data Science"
+    ML = "Machine Learning"
+    BASIC = "Basic Package"
+
+
 class ProjectScaffolder:
     def __init__(self):
         self.project_path: Path | None = None
@@ -30,6 +40,7 @@ class ProjectScaffolder:
         self.package_name: str = ""
         self.description: str = ""
         self.author: str = ""
+        self.project_type: ProjectType = ProjectType.BASIC
         self.dependencies: list[str] = []
         self.dev_dependencies: list[str] = ["pytest", "ruff"]
         self.include_docker: bool = False
@@ -51,6 +62,48 @@ class ProjectScaffolder:
 
         return True
 
+    def _directories_for_type(self) -> list[str]:
+        base = [f"src/{self.package_name}", "tests", "docs"]
+
+        if self.project_type == ProjectType.CLI:
+            return base
+
+        if self.project_type in (ProjectType.LIB, ProjectType.BASIC):
+            return base
+
+        if self.project_type == ProjectType.WEB:
+            return base + [
+                f"src/{self.package_name}/routers",
+                f"src/{self.package_name}/models",
+                f"src/{self.package_name}/core",
+                "static",
+                "templates",
+            ]
+
+        if self.project_type == ProjectType.DS:
+            return base + [
+                "notebooks",
+                "data/raw",
+                "data/processed",
+                "reports",
+                f"src/{self.package_name}/features",
+                f"src/{self.package_name}/visualization",
+            ]
+
+        if self.project_type == ProjectType.ML:
+            return base + [
+                "notebooks",
+                "data/raw",
+                "data/processed",
+                "models",
+                "reports",
+                f"src/{self.package_name}/features",
+                f"src/{self.package_name}/training",
+                f"src/{self.package_name}/inference",
+            ]
+
+        return base
+
     def create_project_structure(self):
         console.print(f"[green]Creating project structure for '{self.project_name}'...[/green]")
 
@@ -59,7 +112,7 @@ class ProjectScaffolder:
 
         os.chdir(self.project_path)
 
-        directories = [f"src/{self.package_name}", "tests", "docs"]
+        directories = self._directories_for_type()
 
         for directory in directories:
             Path(directory).mkdir(parents=True, exist_ok=True)
