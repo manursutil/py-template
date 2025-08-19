@@ -1,12 +1,12 @@
-# 🐍 Py-Template
+# 🔥 UVForge
 
 **Interactive Python project generator - like `create-react-app` but for Python**
 
 Stop copying project structures and wrestling with configuration files. Answer a few questions, and get a perfectly structured Python project in seconds.
 
-## ✨ Why py-template?
+## ✨ Why UVForge?
 
-**Before py-template:**
+**Before UVForge:**
 
 ```bash
 mkdir my-project
@@ -16,17 +16,17 @@ mkdir src tests docs
 # ... 15 more minutes of boilerplate setup
 ```
 
-**With py-template:**
+**With UVForge:**
 
 ```bash
-py-template
+uvforge
 # Answer 4-5 quick questions
 # ✅ Complete project ready in 30 seconds
 ```
 
 ### vs. cookiecutter
 
-| Feature         | py-template                  | cookiecutter                 |
+| Feature         | UVForge                      | cookiecutter                 |
 | --------------- | ---------------------------- | ---------------------------- |
 | Setup method    | Interactive Q&A              | Config files first           |
 | Learning curve  | None - just answer questions | Need to understand JSON/YAML |
@@ -45,10 +45,16 @@ py-template
 
 ## 📦 Installation
 
-### Using pipx (Recommended)
+### Using pip (Recommended)
 
 ```bash
-pipx install git+https://github.com/manursutil/py-template.git
+pip install uvforge
+```
+
+### Using pipx
+
+```bash
+pipx install uvforge
 ```
 
 ### Using uv (Development)
@@ -65,7 +71,7 @@ uv pip install -e .
 Simply run the command and follow the interactive prompts:
 
 ```bash
-py-template
+uvforge
 ```
 
 ### Demo
@@ -112,17 +118,13 @@ uv run ruff format .
 
 ## A Note from the Author
 
-Py-Template started as a tool I built for my own workflow so it is a very opinionated way to spin up Python projects with the tools I use most frequently.
+UVForge started as a tool I built for my own workflow so it is a very opinionated way to spin up Python projects with the tools I use most frequently.
 
-That said, I’d love to make it useful for a broader audience.If you use a different stack, need extra integrations, or have ideas for improvement, please open an issue or PR.
+That said, I'd love to make it useful for a broader audience. If you use a different stack, need extra integrations, or have ideas for improvement, please open an issue or PR.
 
-Together we can make Py-Template a universal scaffolding tool for modern Python projects 🚀
+Together we can make UVForge a universal scaffolding tool for modern Python projects 🚀
 
 See [CONTRIBUTING.md](/docs/contributing.md) for guidelines on how to get involved.
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 

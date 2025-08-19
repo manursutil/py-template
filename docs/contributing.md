@@ -1,8 +1,8 @@
-# Contributing to Py-Template
+# Contributing to UVForge
 
-First off, thank you for considering contributing to **Py-Template**! 🎉
+First off, thank you for considering contributing to **UVForge**! 🎉
 
-It’s people like you that make the open source community such a great place.
+It's people like you that make the open source community such a great place.
 
 ## Development Setup
 
@@ -34,7 +34,7 @@ uv run ruff format .
 
 ## How You Can Contribute
 
-There are many ways to help improve Py-Template:
+There are many ways to help improve UVForge:
 
 - Share ideas — open an issue or start a discussion
 - Report bugs — include steps to reproduce, expected vs. actual behavior
@@ -43,7 +43,7 @@ There are many ways to help improve Py-Template:
 
 ## Feature Requests
 
-Py-Template started as a tool for **my own workflow**, but I want to make it useful for a broader audience.
+UVForge started as a tool for **my own workflow**, but I want to make it useful for a broader audience.
 
 Ideas that would be especially valuable:
 
@@ -51,7 +51,7 @@ Ideas that would be especially valuable:
 - CI/CD integrations (GitLab CI, etc.)
 - Developer tools (MyPy, Pre-commit, Black, etc.)
 
-If you’d like to propose one, please open an issue first so we can discuss it.
+If you'd like to propose one, please open an issue first so we can discuss it.
 
 ## Code Style
 
@@ -90,4 +90,4 @@ git push origin feature/amazing-feature
 
 5. Open a Pull Request 🚀
 
-Thank you for making Py-Template better! 🙌
+Thank you for making UVForge better! 🙌

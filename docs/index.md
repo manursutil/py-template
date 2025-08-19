@@ -1,10 +1,10 @@
-# Welcome to Py-Template's documentation!
+# Welcome to UVForge's documentation!
 
-Py-Template is a CLI tool to scaffold Python projects with `uv`.
+UVForge is a CLI tool to scaffold Python projects with `uv`.
 
 ## Introduction
 
-This documentation will guide you through the features and usage of Py-Template.
+This documentation will guide you through the features and usage of UVForge.
 
 ## Getting Started
 

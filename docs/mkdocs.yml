@@ -1,4 +1,4 @@
-site_name: Py-Template
+site_name: UVForge
 nav:
-    - Home: index.md
-    - Contributing: contributing.md
+  - Home: index.md
+  - Contributing: contributing.md
