@@ -1,5 +1,5 @@
 [project]
-name = "py-template-uv-cli"
+name = "uvforge"
 version = "0.1.0"
 description = "A CLI tool to scaffold Python projects with uv"
 readme = "README.md"
@@ -33,7 +33,7 @@ Repository = "https://github.com/manursutil/py-template"
 Issues = "https://github.com/manursutil/py-template/issues"
 
 [project.scripts]
-py-template = "py_template.main:main"
+uvforge = "py_template.main:main"
 
 [dependency-groups]
 dev = [
