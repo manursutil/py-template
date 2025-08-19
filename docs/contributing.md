@@ -9,8 +9,8 @@ It's people like you that make the open source community such a great place.
 1. Clone the repo:
 
 ```bash
-git clone https://github.com/manursutil/py-template.git
-cd py-template
+git clone https://github.com/manursutil/uvforge.git
+cd uvforge
 ```
 
 2. Sync dependencies with uv:

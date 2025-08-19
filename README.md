@@ -51,21 +51,6 @@ uvforge
 pip install uvforge
 ```
 
-### Using pipx
-
-```bash
-pipx install uvforge
-```
-
-### Using uv (Development)
-
-```bash
-git clone https://github.com/manursutil/py-template.git
-cd py-template
-uv sync
-uv pip install -e .
-```
-
 ## 🚀 Usage
 
 Simply run the command and follow the interactive prompts:
@@ -107,8 +92,8 @@ See [CONTRIBUTING.md](/docs/contributing.md) for full details on setting up a de
 Quick start:
 
 ```bash
-git clone https://github.com/manursutil/py-template.git
-cd py-template
+git clone https://github.com/manursutil/uvforge.git
+cd uvforge
 uv sync
 
 uv run pytest
