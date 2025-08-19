@@ -1,5 +1,5 @@
 [project]
-name = "py-template-cli"
+name = "py-template-uv-cli"
 version = "0.1.0"
 description = "A CLI tool to scaffold Python projects with uv"
 readme = "README.md"
