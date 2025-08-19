@@ -1,5 +1,5 @@
 [project]
-name = "py-template"
+name = "py-template-cli"
 version = "0.1.0"
 description = "A CLI tool to scaffold Python projects with uv"
 readme = "README.md"
@@ -8,12 +8,29 @@ authors = [
     {name = "Manuel Rodríguez Sutil", email = "mrodsut@gmail.com"}
 ]
 requires-python = ">=3.13"
+keywords = ["cli", "template", "scaffold", "python", "uv"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Code Generators",
+]
 dependencies = [
     "click>=8.2.1",
     "inquirerpy>=0.3.4",
     "pyfiglet>=1.0.4",
     "rich>=14.1.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/manursutil/py-template"
+Repository = "https://github.com/manursutil/py-template"
+Issues = "https://github.com/manursutil/py-template/issues"
 
 [project.scripts]
 py-template = "py_template.main:main"
