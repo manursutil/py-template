@@ -33,7 +33,7 @@ Repository = "https://github.com/manursutil/py-template"
 Issues = "https://github.com/manursutil/py-template/issues"
 
 [project.scripts]
-uvforge = "py_template.main:main"
+uvforge = "uvforge.main:main"
 
 [dependency-groups]
 dev = [

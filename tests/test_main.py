@@ -2,14 +2,14 @@ from unittest.mock import MagicMock, patch
 
 from click.testing import CliRunner
 
-from src.py_template.main import main
-from src.py_template.scaffolder import ProjectType
+from src.uvforge.main import main
+from src.uvforge.scaffolder import ProjectType
 
 
-@patch("src.py_template.main.ProjectScaffolder")
-@patch("src.py_template.main.Prompt")
-@patch("src.py_template.main.Confirm")
-@patch("src.py_template.main.inquirer")
+@patch("src.uvforge.main.ProjectScaffolder")
+@patch("src.uvforge.main.Prompt")
+@patch("src.uvforge.main.Confirm")
+@patch("src.uvforge.main.inquirer")
 def test_main_successful_scaffolding(
     mock_inquirer: MagicMock,
     mock_confirm: MagicMock,
@@ -58,10 +58,10 @@ def test_main_successful_scaffolding(
     mock_scaffolder_instance.scaffold_project.assert_called_once()
 
 
-@patch("src.py_template.main.ProjectScaffolder")
-@patch("src.py_template.main.Prompt")
-@patch("src.py_template.main.Confirm")
-@patch("src.py_template.main.inquirer")
+@patch("src.uvforge.main.ProjectScaffolder")
+@patch("src.uvforge.main.Prompt")
+@patch("src.uvforge.main.Confirm")
+@patch("src.uvforge.main.inquirer")
 def test_main_invalid_project_name(
     mock_inquirer: MagicMock,
     mock_confirm: MagicMock,
@@ -103,10 +103,10 @@ def test_main_invalid_project_name(
     mock_scaffolder_instance.scaffold_project.assert_called_once()
 
 
-@patch("src.py_template.main.ProjectScaffolder")
-@patch("src.py_template.main.Prompt")
-@patch("src.py_template.main.Confirm")
-@patch("src.py_template.main.inquirer")
+@patch("src.uvforge.main.ProjectScaffolder")
+@patch("src.uvforge.main.Prompt")
+@patch("src.uvforge.main.Confirm")
+@patch("src.uvforge.main.inquirer")
 def test_main_keyboard_interrupt(
     mock_inquirer: MagicMock,
     mock_confirm: MagicMock,
@@ -133,10 +133,10 @@ def test_main_keyboard_interrupt(
     assert "Project creation interrupted by user." in result.output
 
 
-@patch("src.py_template.main.ProjectScaffolder")
-@patch("src.py_template.main.Prompt")
-@patch("src.py_template.main.Confirm")
-@patch("src.py_template.main.inquirer")
+@patch("src.uvforge.main.ProjectScaffolder")
+@patch("src.uvforge.main.Prompt")
+@patch("src.uvforge.main.Confirm")
+@patch("src.uvforge.main.inquirer")
 def test_main_no_dependencies(
     mock_inquirer: MagicMock,
     mock_confirm: MagicMock,
@@ -167,10 +167,10 @@ def test_main_no_dependencies(
     mock_scaffolder_instance.scaffold_project.assert_called_once()
 
 
-@patch("src.py_template.main.ProjectScaffolder")
-@patch("src.py_template.main.Prompt")
-@patch("src.py_template.main.Confirm")
-@patch("src.py_template.main.inquirer")
+@patch("src.uvforge.main.ProjectScaffolder")
+@patch("src.uvforge.main.Prompt")
+@patch("src.uvforge.main.Confirm")
+@patch("src.uvforge.main.inquirer")
 def test_main_different_project_types(
     mock_inquirer: MagicMock,
     mock_confirm: MagicMock,
@@ -202,10 +202,10 @@ def test_main_different_project_types(
     mock_scaffolder_instance.scaffold_project.assert_called_once()
 
 
-@patch("src.py_template.main.ProjectScaffolder")
-@patch("src.py_template.main.Prompt")
-@patch("src.py_template.main.Confirm")
-@patch("src.py_template.main.inquirer")
+@patch("src.uvforge.main.ProjectScaffolder")
+@patch("src.uvforge.main.Prompt")
+@patch("src.uvforge.main.Confirm")
+@patch("src.uvforge.main.inquirer")
 def test_main_ml_project_type(
     mock_inquirer: MagicMock,
     mock_confirm: MagicMock,

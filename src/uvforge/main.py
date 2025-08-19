@@ -13,7 +13,7 @@ console = Console()
 
 @click.command()
 def main():
-    ascii_banner = pyfiglet.figlet_format("PY-TEMPLATE", font="small", width=80)
+    ascii_banner = pyfiglet.figlet_format("UVFORGE", font="small", width=80)
 
     console.print(ascii_banner)
 
@@ -124,7 +124,7 @@ def main():
 
 @click.command()
 def version():
-    console.print("[blue]Py-Template v1.0.0[/blue]")
+    console.print("[blue]UVFORGE v0.1.0[/blue]")
 
 
 if __name__ == "__main__":

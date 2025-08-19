@@ -3,7 +3,7 @@ import tempfile
 
 import pytest
 
-from src.py_template.scaffolder import ProjectScaffolder, ProjectType
+from src.uvforge.scaffolder import ProjectScaffolder, ProjectType
 
 
 @pytest.fixture
@@ -201,7 +201,7 @@ def test_create_project_structure_with_different_types():
 
 def test_project_type_enum_values():
     """Test that ProjectType enum has correct values"""
-    from src.py_template.scaffolder import ProjectType
+    from src.uvforge.scaffolder import ProjectType
 
     assert ProjectType.CLI == "CLI Tool"
     assert ProjectType.WEB == "Web Application"
